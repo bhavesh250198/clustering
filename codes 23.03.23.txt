@@ -1,0 +1,38 @@
+library(dplyr)
+# Create a data frame with missing data
+df<- data.frame(name=c("Pratik",NA,"Saurabh",NA,"Karishma"),
+                age=c(25,23,23,NA,NA),
+                marks=c(80,80,80,72,NA))
+df
+
+#filter
+#select
+#mutate
+#arange
+#sample_frac
+#summarize
+#filter
+#is.na()
+#%>%
+  
+df %>% filter(is.na(marks))
+df %>% filter(is.na(age))
+df %>% filter(!is.na(name))
+
+sum(is.na(df))
+sum(is.na(df$name))
+
+select(df,starts_with("m")) #display col which starts with m
+select(df,-starts_with("a")) #exclude col strats with a
+select(df, contains("a"))
+select(df,matches("ge"))
+select(df,2:3)
+
+df=read.csv("sampledata.csv")
+head(df)
+sample_n(df,5)
+sample_frac(df,0.2)
+c=distinct(df)
+str(c)
+select(df,Index,State:Y2008)
+select(df,-Index,-State)
